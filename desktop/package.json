@@ -1,0 +1,51 @@
+{
+  "name": "hongguotv-mac",
+  "version": "0.8.1",
+  "description": "红果短剧Mac客户端SAF版 macOS 客户端",
+  "main": "main.mjs",
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "author": "hongguoTV contributors",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.mjs",
+    "probe": "node probe.mjs",
+    "build:mac": "electron-builder --config electron-builder.mac.cjs --mac dmg zip --arm64 --x64 --publish never"
+  },
+  "dependencies": {
+    "axios": "1.13.6",
+    "cheerio": "1.2.0",
+    "sm-crypto": "0.3.13"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "jsdom": "^27.0.1",
+    "resedit": "1.7.2"
+  },
+  "build": {
+    "appId": "com.hongguotv.desktop",
+    "productName": "红果短剧Mac客户端SAF版",
+    "asar": true,
+    "directories": {
+      "output": "../outputs/macos",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.mjs",
+      "preload.cjs",
+      "provider.mjs",
+      "media.mjs",
+      "library.mjs",
+      "ui/**",
+      "vendor/**",
+      "LICENSE",
+      "NOTICE.md",
+      "licenses/**",
+      "README.md",
+      "package.json",
+      "assets/**"
+    ],
+    "publish": null
+  }
+}
